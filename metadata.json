@@ -1,0 +1,6 @@
+{
+  "name": "PlaySphere 2.0 - Gaming Lounge & Café",
+  "description": "Next-gen gaming lounge and café web platform featuring console bookings, game library, tournament registrations, and café food ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
