@@ -49,10 +49,17 @@ export const WhatGamersSay: React.FC<WhatGamersSayProps> = ({
               />
               <div>
                 <h4 className="text-xs font-bold text-white">{item.name}</h4>
-                {/* 5 Stars */}
+                {/* Stars Rating */}
                 <div className="flex items-center gap-0.5 mt-0.5">
-                  {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" />
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-3 h-3 ${
+                        i < item.rating
+                          ? 'text-amber-400 fill-amber-400'
+                          : 'text-slate-700 fill-slate-800'
+                      }`}
+                    />
                   ))}
                 </div>
               </div>

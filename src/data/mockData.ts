@@ -204,7 +204,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
     name: 'Rohit Yadav',
-    rating: 5,
+    rating: 4,
     comment: 'Best gaming lounge I\'ve ever visited! Amazing setup and atmosphere.',
     avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop',
     role: 'Pro Gamer'
@@ -212,7 +212,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-2',
     name: 'Sneha Patil',
-    rating: 5,
+    rating: 4,
     comment: 'Loved the vibe and food! Perfect place to hangout.',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
     role: 'Casual Gamer'
@@ -220,7 +220,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-3',
     name: 'Ankush More',
-    rating: 5,
+    rating: 4,
     comment: 'Tournaments are so well organized. Totally worth it!',
     avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=200&auto=format&fit=crop',
     role: 'Esports Competitor'
