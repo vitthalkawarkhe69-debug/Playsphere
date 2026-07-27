@@ -28,14 +28,14 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Action, Adventure',
     rating: 4.7,
     pricePerHour: 350,
-    image: '/images/Spider-Man 2 Player Recreates Tobey Maguire Movie___.jpeg',
+    image: '/images/spiderman2.jpeg',
     isFavorite: false,
     description: 'Spider-Men Peter Parker and Miles Morales face the ultimate test of strength inside and outside the mask as they fight to save New York.',
     platforms: ['PS5']
   },
   {
     id: 'eafc-24',
-    title: 'EA FC 24',
+    title: 'EA FC 26',
     category: 'Sports, Multiplayer',
     rating: 4.6,
     pricePerHour: 250,
@@ -45,14 +45,14 @@ export const FEATURED_GAMES: Game[] = [
     platforms: ['PS5', 'Xbox Series X', 'PC']
   },
   {
-    id: 'cod-bo6',
-    title: 'Call of Duty: Black Ops 6',
+    id: 'cod-bo7',
+    title: 'Call of Duty: Black Ops 7',
     category: 'Action, Shooting',
     rating: 4.9,
     pricePerHour: 300,
     image: '/images/callofdutyblackops7.jpeg',
     isFavorite: false,
-    description: 'Forced to go rogue. Hunted from within. Call of Duty: Black Ops 6 is a signature Black Ops spy action thriller set in the early 90s.',
+    description: 'Forced to go rogue. Hunted from within. Call of Duty: Black Ops 7 is a signature Black Ops spy action thriller.',
     platforms: ['PC', 'PS5', 'Xbox Series X']
   },
   {
@@ -61,7 +61,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Action, Open World',
     rating: 4.9,
     pricePerHour: 250,
-    image: '/images/Grand Theft Auto V.jpeg',
+    image: '/images/gtav.jpeg',
     isFavorite: false,
     description: 'Explore the vast, bustling open world of Los Santos and Blaine County in the ultimate Grand Theft Auto experience with Michael, Franklin, and Trevor.',
     platforms: ['PS5', 'Xbox Series X', 'PC']
@@ -72,7 +72,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Racing, Sports',
     rating: 4.8,
     pricePerHour: 280,
-    image: '/images/Forza Horizon 6.jpeg',
+    image: '/images/forzahorizon6.jpeg',
     isFavorite: false,
     description: 'Your ultimate Horizon Adventure awaits! Drive hundreds of the world’s greatest cars across vibrant, ever-evolving open world landscapes.',
     platforms: ['Xbox Series X', 'PC']
@@ -83,7 +83,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Action, Adventure',
     rating: 4.9,
     pricePerHour: 320,
-    image: '/images/ghost of tsushima.jpeg',
+    image: '/images/ghostoftsushima.jpeg',
     isFavorite: true,
     description: 'In the late 13th century, the Mongol empire has laid waste to entire nations. As Jin Sakai, forge a new path and wage an unconventional war for the freedom of Tsushima.',
     platforms: ['PS5', 'PC']
@@ -94,7 +94,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Action, Open World',
     rating: 4.9,
     pricePerHour: 300,
-    image: '/images/Red dead redemption.jpeg',
+    image: '/images/reddead2.jpeg',
     isFavorite: false,
     description: 'Winner of over 175 Game of the Year Awards, Red Dead Redemption 2 is an epic tale of honor and loyalty at the dawn of the modern age.',
     platforms: ['PS5', 'Xbox Series X', 'PC']
@@ -105,7 +105,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Horror, Survival',
     rating: 4.8,
     pricePerHour: 280,
-    image: '/images/Resident Evil 4.jpeg',
+    image: '/images/re4.jpeg',
     isFavorite: false,
     description: 'Survival is just the beginning. Six years after the biological disaster in Raccoon City, agent Leon S. Kennedy is sent on a mission to rescue the president\'s daughter.',
     platforms: ['PS5', 'Xbox Series X', 'PC']
@@ -116,7 +116,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Fighting, Sports',
     rating: 4.7,
     pricePerHour: 250,
-    image: "/images/WWE 2K26's.jpeg",
+    image: '/images/wwe2k26.jpeg',
     isFavorite: false,
     description: 'Celebrate 40 Years of WrestleMania in WWE 2K24, featuring a star-studded roster, iconic matches, and new match types like Casket and Special Guest Ref.',
     platforms: ['PS5', 'Xbox Series X', 'PC']
