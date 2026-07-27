@@ -61,7 +61,7 @@ export const FEATURED_GAMES: Game[] = [
     category: 'Action, Open World',
     rating: 4.9,
     pricePerHour: 250,
-    image: '/images/gtav.jpeg',
+    image: 'public/images/gtav.jpeg',
     isFavorite: false,
     description: 'Explore the vast, bustling open world of Los Santos and Blaine County in the ultimate Grand Theft Auto experience with Michael, Franklin, and Trevor.',
     platforms: ['PS5', 'Xbox Series X', 'PC']
