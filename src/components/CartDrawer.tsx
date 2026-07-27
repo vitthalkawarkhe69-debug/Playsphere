@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Trash2, Plus, Minus, ShoppingBag, Sparkles, ArrowRight } from 'lucide-react';
 import { CartItem } from '../types';
 
@@ -10,6 +10,7 @@ interface CartDrawerProps {
   onRemoveItem: (id: string) => void;
   onClearCart: () => void;
   onCheckout: () => void;
+  discountClaimed?: boolean;
 }
 
 export const CartDrawer: React.FC<CartDrawerProps> = ({
@@ -20,11 +21,29 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   onRemoveItem,
   onClearCart,
   onCheckout,
+  discountClaimed = false,
 }) => {
-  if (!isOpen) return null;
+  const [coupon, setCoupon] = useState(discountClaimed ? 'PLAYSPHERE10' : '');
+  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(discountClaimed ? 'PLAYSPHERE10' : null);
 
-  const [coupon, setCoupon] = useState('');
-  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+  useEffect(() => {
+    if (discountClaimed) {
+      setCoupon('PLAYSPHERE10');
+      setAppliedCoupon('PLAYSPHERE10');
+    }
+  }, [discountClaimed]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const discount = appliedCoupon === 'PLAYSPHERE10' ? Math.round(subtotal * 0.1) : 0;
@@ -84,6 +103,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <img
                     src={item.image}
                     alt={item.title}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400&auto=format&fit=crop';
+                    }}
                     className="w-14 h-14 rounded-xl object-cover shrink-0"
                   />
                 )}

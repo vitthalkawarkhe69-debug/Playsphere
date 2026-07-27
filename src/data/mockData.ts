@@ -142,6 +142,17 @@ export const FEATURED_GAMES: Game[] = [
     isFavorite: false,
     description: '12ft Full-sized Championship Snooker table featuring Strachan 6811 green cloth, precision wooden cues, extension rests & electronic scoring.',
     platforms: ['Snooker Arena', 'VIP Lounge']
+  },
+  {
+    id: 'valorant',
+    title: 'Valorant',
+    category: 'FPS, Tactical Shooter',
+    rating: 4.9,
+    pricePerHour: 200,
+    image: '/images/valorant.jpeg',
+    isFavorite: false,
+    description: 'A 5v5 character-based tactical shooter where precise gunplay meets adaptive agent abilities.',
+    platforms: ['PC']
   }
 ];
 
@@ -255,7 +266,7 @@ export const FEATURES_LIST = [
 ];
 
 export const STATS_LIST = [
-  { count: '50+', label: 'GAMES', icon: 'Gamepad2' },
+  { count: '15+', label: 'GAMES', icon: 'Gamepad2' },
   { count: '1000+', label: 'HAPPY PLAYERS', icon: 'Users' },
   { count: '25+', label: 'TOURNAMENTS', icon: 'Trophy' },
   { count: '5+', label: 'RATINGS', icon: 'Star' }

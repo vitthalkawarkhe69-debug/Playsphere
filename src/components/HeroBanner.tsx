@@ -37,6 +37,10 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         <img
           src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1200&auto=format&fit=crop"
           alt="PlaySphere Hero Character"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop';
+          }}
           className="h-full w-full object-cover object-right mix-blend-lighten mask-gradient"
           style={{
             maskImage: 'linear-gradient(to left, black 50%, transparent 100%)',

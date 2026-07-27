@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Play } from 'lucide-react';
 
 interface TrailerModalProps {
@@ -7,6 +7,16 @@ interface TrailerModalProps {
 }
 
 export const TrailerModal: React.FC<TrailerModalProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -16,7 +26,7 @@ export const TrailerModal: React.FC<TrailerModalProps> = ({ isOpen, onClose }) =
           <div className="flex items-center gap-2">
             <Play className="w-4 h-4 text-lime-400 fill-lime-400" />
             <h3 className="text-sm font-black text-white uppercase tracking-wider">
-              PLAYSPHERE 2.0 OFFICIAL TRAILER
+              PLAYSPHERE OFFICIAL TRAILER
             </h3>
           </div>
           <button

@@ -65,6 +65,10 @@ export const UpcomingTournament: React.FC<UpcomingTournamentProps> = ({
           <img
             src={tournament.image}
             alt={tournament.title}
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop';
+            }}
             className="w-full h-full object-cover object-center mix-blend-lighten"
             style={{
               maskImage: 'linear-gradient(to left, black 60%, transparent 100%)',

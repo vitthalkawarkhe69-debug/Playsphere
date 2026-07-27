@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Trophy, Shield, Users, CheckCircle } from 'lucide-react';
 import { Tournament } from '../types';
 
@@ -15,6 +15,16 @@ export const TournamentModal: React.FC<TournamentModalProps> = ({
   tournament,
   onSuccess,
 }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const [teamName, setTeamName] = useState('');
@@ -41,6 +51,10 @@ export const TournamentModal: React.FC<TournamentModalProps> = ({
           <img
             src={tournament.image}
             alt={tournament.title}
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop';
+            }}
             className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-lighten"
           />
           <button

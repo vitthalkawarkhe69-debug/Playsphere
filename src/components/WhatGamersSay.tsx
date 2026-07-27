@@ -45,6 +45,10 @@ export const WhatGamersSay: React.FC<WhatGamersSayProps> = ({
               <img
                 src={item.avatar}
                 alt={item.name}
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop';
+                }}
                 className="w-10 h-10 rounded-full object-cover ring-2 ring-lime-400/60"
               />
               <div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, Clock, Tv, Check, Gamepad2, Sparkles } from 'lucide-react';
 import { Game, FoodItem, SlotBookingRequest } from '../types';
 
@@ -27,6 +27,33 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [durationHours, setDurationHours] = useState<number>(2);
   const [selectedSnacks, setSelectedSnacks] = useState<{ [id: string]: number }>({});
   const [coupon, setCoupon] = useState<string>(discountClaimed ? 'PLAYSPHERE10' : '');
+
+  useEffect(() => {
+    if (isOpen) {
+      if (discountClaimed) {
+        setCoupon('PLAYSPHERE10');
+      }
+      if (selectedGame) {
+        const pList = selectedGame.platforms || [];
+        if (pList.some(p => p.includes('Pool'))) setPlatform('Pool Table');
+        else if (pList.some(p => p.includes('Snooker'))) setPlatform('Snooker Table');
+        else if (pList.some(p => p.includes('VR'))) setPlatform('VR Simulator');
+        else if (pList.some(p => p.includes('PC'))) setPlatform('High-End PC');
+        else if (pList.some(p => p.includes('Xbox'))) setPlatform('Xbox Series X');
+        else setPlatform('PS5');
+      }
+    }
+  }, [isOpen, selectedGame, discountClaimed]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   const availableSlots = [
     '10:00 AM', '12:00 PM', '02:00 PM', '03:00 PM', '05:00 PM', '07:00 PM', '09:00 PM', '11:00 PM'
@@ -103,7 +130,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 BOOK YOUR GAMING SLOT
               </h3>
               <p className="text-[11px] sm:text-xs text-slate-400 truncate">
-                {selectedGame ? `Reserved for: ${selectedGame.title}` : 'PlaySphere 2.0 Lounge'}
+                {selectedGame ? `Reserved for: ${selectedGame.title}` : 'PlaySphere Lounge'}
               </p>
             </div>
           </div>

@@ -88,6 +88,10 @@ export const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({
             <img
               src={user.avatar}
               alt={user.name}
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=400&auto=format&fit=crop';
+              }}
               className="w-10 h-10 rounded-xl object-cover ring-2 ring-lime-400/80 shadow-[0_0_10px_rgba(163,230,53,0.3)]"
             />
             <div className="flex-1 min-w-0">
@@ -177,7 +181,7 @@ export const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({
             <a href="https://discord.com" target="_blank" rel="noreferrer" className="p-1.5 hover:text-lime-400">
               <MessageSquare className="w-4 h-4" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-1.5 hover:text-lime-400">
+            <a href="https://www.instagram.com/playsphere.98?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="p-1.5 hover:text-lime-400">
               <Instagram className="w-4 h-4" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer" className="p-1.5 hover:text-lime-400">

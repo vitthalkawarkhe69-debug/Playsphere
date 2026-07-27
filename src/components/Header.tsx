@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
     {
       id: 'n1',
       title: 'Tournament Starting Soon!',
-      desc: 'PlaySphere Cup 2.0 starts in 3 days.',
+      desc: 'PlaySphere Cup starts in 3 days.',
       time: '10m ago',
       icon: Trophy,
       read: false

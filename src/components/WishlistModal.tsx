@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Heart, Star, Calendar } from 'lucide-react';
 import { Game } from '../types';
 
@@ -17,6 +17,16 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
   onRemoveFavorite,
   onBookGame,
 }) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -54,7 +64,15 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                 className="bg-[#0e131d] p-3 rounded-2xl border border-slate-800 flex items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-3">
-                  <img src={game.image} alt={game.title} className="w-12 h-12 rounded-xl object-cover" />
+                  <img
+                    src={game.image}
+                    alt={game.title}
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400&auto=format&fit=crop';
+                    }}
+                    className="w-12 h-12 rounded-xl object-cover"
+                  />
                   <div>
                     <h4 className="text-xs font-bold text-white">{game.title}</h4>
                     <p className="text-[10px] text-slate-400">{game.category}</p>

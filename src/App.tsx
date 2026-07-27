@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavTab, Game, FoodItem, CartItem, UserProfile, SlotBookingRequest } from './types';
 import {
   INITIAL_USER,
@@ -55,8 +55,14 @@ import {
 } from 'lucide-react';
 
 export default function App() {
+  const mainRef = useRef<HTMLElement>(null);
+
   // Navigation & View State
   const [activeTab, setActiveTab] = useState<NavTab>('home');
+
+  useEffect(() => {
+    mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
   const [navHistory, setNavHistory] = useState<NavTab[]>(['home']);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [user, setUser] = useState<UserProfile>(INITIAL_USER);
@@ -318,7 +324,7 @@ export default function App() {
         />
 
         {/* Dynamic Page Content */}
-        <main className="flex-1 p-3 sm:p-4 md:p-6 pb-24 lg:pb-6 space-y-6 md:space-y-8 overflow-y-auto custom-scrollbar max-w-7xl mx-auto w-full">
+        <main ref={mainRef} className="flex-1 p-3 sm:p-4 md:p-6 pb-24 lg:pb-6 space-y-6 md:space-y-8 overflow-y-auto custom-scrollbar scroll-smooth max-w-7xl mx-auto w-full">
           {activeTab === 'home' && (
             <>
               {/* Hero Banner Section */}
@@ -613,6 +619,7 @@ export default function App() {
         onRemoveItem={handleRemoveCartItem}
         onClearCart={handleClearCart}
         onCheckout={handleCheckout}
+        discountClaimed={user.discountClaimed}
       />
 
       <TournamentModal
@@ -623,7 +630,7 @@ export default function App() {
       />
 
       <GameDetailModal
-        game={selectedGameDetail}
+        game={selectedGameDetail ? games.find((g) => g.id === selectedGameDetail.id) || selectedGameDetail : null}
         onClose={() => setSelectedGameDetail(null)}
         onToggleFavorite={handleToggleFavorite}
         onBookGameSlot={(game) => {

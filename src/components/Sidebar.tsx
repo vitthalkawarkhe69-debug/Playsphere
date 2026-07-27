@@ -121,6 +121,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <img
                 src={user.avatar}
                 alt={user.name}
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=400&auto=format&fit=crop';
+                }}
                 className="w-11 h-11 rounded-xl object-cover ring-2 ring-lime-400/80 shadow-[0_0_10px_rgba(163,230,53,0.3)]"
               />
               <span className="absolute -bottom-1 -right-1 bg-lime-400 text-black text-[9px] font-extrabold px-1 rounded border border-black">
@@ -179,9 +183,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <MessageSquare className="w-4 h-4" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/playsphere.98?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="p-2 rounded-lg hover:bg-slate-800 hover:text-lime-400 transition-colors"
             title="Instagram"
           >

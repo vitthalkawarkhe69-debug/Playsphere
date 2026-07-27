@@ -38,7 +38,15 @@ export const GameDetailModal: React.FC<GameDetailModalProps> = ({
       >
         {/* Banner Image Header */}
         <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
-          <img src={game.image} alt={game.title} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+          <img
+            src={game.image}
+            alt={game.title}
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop';
+            }}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121824] via-transparent to-black/40" />
 
           {/* 1 Step Back Button */}

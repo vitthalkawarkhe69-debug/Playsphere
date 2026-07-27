@@ -38,8 +38,15 @@ export const FeaturedGames: React.FC<FeaturedGamesProps> = ({
       </div>
 
       {/* 4 Games Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        {games.map((game) => (
+      {games.length === 0 ? (
+        <div className="bg-[#121824] rounded-2xl border border-slate-800/80 p-8 text-center space-y-2">
+          <Gamepad2 className="w-10 h-10 text-slate-600 mx-auto" />
+          <h3 className="text-sm font-bold text-white">No games found</h3>
+          <p className="text-xs text-slate-400">Try searching for another title like PS5, Racing, Action, or FIFA!</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {games.map((game) => (
           <div
             key={game.id}
             className="group bg-[#121824] rounded-2xl border border-slate-800/80 hover:border-lime-400/50 overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
@@ -51,6 +58,9 @@ export const FeaturedGames: React.FC<FeaturedGamesProps> = ({
                 src={game.image}
                 alt={game.title}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop';
+                }}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#121824] via-transparent to-black/30" />
@@ -97,6 +107,7 @@ export const FeaturedGames: React.FC<FeaturedGamesProps> = ({
           </div>
         ))}
       </div>
+      )}
     </section>
   );
 };
